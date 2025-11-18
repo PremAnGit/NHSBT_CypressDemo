@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/checkout@v4
         with:
-          node-version: '22' # Use a Node version compatible with your dependencies
+          node-version: '20' # Use a Node version compatible with your dependencies
       
       - name: Cache Cypress binary
         uses: actions/cache@v4
