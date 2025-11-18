@@ -60,10 +60,40 @@ npx cypress open
     (Note : You can see all the respective commands in the script section of package.json and in config file we can update the  reporterOption accordingly ).
 
 
-5. To Start Git
+5. To use Git on the project
     a. Initially to get Git on a local repo. Run 
+    
     git init -b main
 
     b. add node_modules and other irrelevant folder to the git ignore.
+
+    c. Then add modified files that are applicable. if all needed to be added, use
+
+    git add .
+
+    d. Then commit and provide the comment for the commit.
+
+    git commit -m ' some commit message'
+
+    e. then, if no remote if its first time
+
+    git remote add origin <REMOTE_URL> ( in our case its : https://github.com/PremAnGit/NHSBT_CypressDemo.git)
+
+    f. Then, push the branch to remote
+
+    git push -u origin main
+
+    g. For anyone to clone and execute locally. We can do the following way
+
+      i. First clone the project from the respective git repository.
+      using url : https://github.com/PremAnGit/NHSBT_CypressDemo.git
+      using Github CLI : gh repo clone PremAnGit/NHSBT_CypressDemo
+
+      ii. Then Run below command to install the respective node modules defined in the package.json.
+      npm install 
+
+
+
+
 
 
