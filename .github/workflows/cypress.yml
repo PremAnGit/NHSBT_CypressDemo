@@ -14,10 +14,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+     - name: Install dependencies
+        run: npm ci
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build         # if you build your app
-          start: npm start             # if you need to run your app
-          wait-on: 'http://localhost:3000'  # URL to wait for before tests start (optional)
-          browser: chrome               # optional: run in specific browser
+          # No build or start needed
+          install: false
+          runTests: true
+          browser: chrome
+          # Optionally: point to specific specs, if needed
+          # spec: cypress/e2e/**/*.*
