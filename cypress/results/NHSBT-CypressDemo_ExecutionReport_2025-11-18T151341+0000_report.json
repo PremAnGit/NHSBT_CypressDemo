@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-18T15:13:20.919Z",
+    "end": "2025-11-18T15:13:41.260Z",
+    "duration": 20341,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "309cc3c7-448f-4079-bee8-535412570124",
+      "title": "",
+      "fullFile": "cypress/e2e/TC1_RegisterUser&DeleteAccount.cy.js",
+      "file": "cypress/e2e/TC1_RegisterUser&DeleteAccount.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bc40efd8-d1e5-4255-bc51-4e238bd48aef",
+          "title": "TC1_Register User & Delete Account Sucessfully",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to and verify homepage URL, SignIn, LogIn and then delete account",
+              "fullTitle": "TC1_Register User & Delete Account Sucessfully Navigate to and verify homepage URL, SignIn, LogIn and then delete account",
+              "timedOut": null,
+              "duration": 17675,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Step 3 : Verify home page has loaded sucesfully\nconst homepage = Cypress.config('homepageUrl');\ncy.url().should('eq', homepage);\ncy.contains('Home').should('exist');\n//Step 4 : Click on 'Signup / login' button\ncy.clickByText(_signupPage.home.signupLoginBtn);\n//Step 5 : Verify 'New User Signup' in visible\ncy.contains(_signupPage.signup.newUserText).should('be.visible');\n//Step 6 : Enter Name and email Address\ncy.fillSignupBasic(username, email);\n//Step 7 : Click Sgin up Button\ncy.clickSignupButton();\n// Step 8: Verify that 'ENTER ACCOUNT INFORMATION' is visible\ncy.verifyEnterAccountInfoHeading(_signupPage.accountInfo.enterAccountInfoText);\n//Step 9: Fill details: Title, Name, Email, Password, Date of birth\ncy.enterSignupDetailsPart1(password, dobDay, dobMonth, dobYear);\n//Step 10 : Select checkbox 'Sign up for our newsletter!'\ncy.checkSignupNewsLetter();\n//Step 11 : Select checkbox 'Receive special offers from our partners!'\ncy.checkSpecialOffers();\n//Step 12 : Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number\ncy.enterSignupDetailsPart2('TestUser', 'timestamp', 'company', 'add 1', 'add 2', 'United States', 'West Yorkshire', 'wakefield', 'wf10 10fw', '8000000009');\n//Step 13 : Click 'Create Account button'\ncy.clickByText('Create Account');\n//Step 14 :  Verify that 'ACCOUNT CREATED!' is visible \ncy.verifyAccountCreationSucess();\n//Step 15 : Click 'Continue' button\ncy.clickByText('Continue');\n//Step 16 : Verify that 'Logged in as username' is visible\ncy.contains((0, _signupPage.loggedInAs)(username)).should('be.visible');\n//Step 17 & 18 : Click 'Delete Account' button\ncy.deleteAccount();",
+              "err": {},
+              "uuid": "834afc05-8fe4-48c0-af83-fda69f9baad3",
+              "parentUUID": "bc40efd8-d1e5-4255-bc51-4e238bd48aef",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "834afc05-8fe4-48c0-af83-fda69f9baad3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17675,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "NHSBT-CypressDemo_ExecutionReport_[datetime]_report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "reportFilename": "NHSBT-CypressDemo_ExecutionReport_[datetime]_report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
