@@ -29,19 +29,21 @@ npx cypress open
 3. Execute Automation tests
     These tests can be run in many ways.
     a. To run openly and view the execution, can be done on a New Terminal and run the following command.
-         i. npx cypress open( this will by default will open chrome driver).
+
+         i. npx cypress open(this will by default will open chrome driver).
+         
          ii. Select the E2E Testing.
          iii. No select a browser to execution.(Say we can select Chrome).
          iV. Select the respective e2e to run.
 
     b. To run headless execution (by default it will be chrome)
-        i. npx cypress run
         
-        ii. To run the test with headless and sepecific browser,for eg,  Edge user You can use the following command.
+        npx cypress run
+        
+    c. To run the test with headless and sepecific browser,for eg,  Edge user You can use the following command.
+
         npx cypress run --browser edge
     
-    d. To Run the Cypress test on Pipleline
-
 
 4. Generate, Merge and display HTML Report using Mochaawesome
 
@@ -92,6 +94,9 @@ npx cypress open
       ii. Then Run below command to install the respective node modules defined in the package.json.
       npm install 
 
+6. To run Cypress on the github pipeline
+
+mkdir -p .github/workflows
 
 
 

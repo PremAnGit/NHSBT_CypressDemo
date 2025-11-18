@@ -1,0 +1,23 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build         # if you build your app
+          start: npm start             # if you need to run your app
+          wait-on: 'http://localhost:3000'  # URL to wait for before tests start (optional)
+          browser: chrome               # optional: run in specific browser
