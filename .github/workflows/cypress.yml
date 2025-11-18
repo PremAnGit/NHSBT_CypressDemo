@@ -13,10 +13,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/checkout@v4
+        with:
+          node-version: '22' # Use a Node version compatible with your dependencies
+      
+      - name: Cache Cypress binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-binary-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install dependencies
+      - name: Install deps
         run: npm ci
 
+      - name: Install Cypress binary
+        run: npx cypress install
+        
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
