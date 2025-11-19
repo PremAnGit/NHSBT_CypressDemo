@@ -14,12 +14,14 @@ describe('Test Scenarios to Register User,Login & Delete Account', () => {
   beforeEach(function () {
     //Step 1 and 2: browser launch & visit baseUrl 
     cy.baseUrl(); 
+    // data set from the fixture 
     cy.fixture('userData').as('signupData');   
   });
 
   it('Navigate to and verify homepage URL, SignIn, LogIn and then delete account', () => {    
     
     cy.get('@signupData').then((signupData) => {
+
     const address = signupData.signupUser.address;
     cy.log('address is', address);
 
