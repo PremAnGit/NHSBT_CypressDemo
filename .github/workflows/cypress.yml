@@ -33,9 +33,16 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run report:full
-        
+
       - name: List report files
         run: ls -R cypress/results/mocha
+
+      # Zip all the report folder 
+      - name: Zip report folder
+          run: |
+          sudo apt-get update
+          sudo apt-get install -y zip
+          zip -r report.zip cypress/results/mocha  
         
       - name: Send test report email
         if: always()
@@ -52,12 +59,10 @@ jobs:
 
           subject: "Cypress Test Report for ${{ github.repository }}"
           body: "The Cypress tests have completed. The Mochawesome report is attached."
-          
+
           # Path to attachments. Glob works, so you can do e.g. all .html in report folder
           attachments: |
-          cypress/results/mocha/assets
-          cypress/results/mocha/*.html
+          report.zip
           
-
           to: "prem.donn@gmail.com"            # recipient(s)
           from: "CI <ci@example.com>"      # sender name and email
