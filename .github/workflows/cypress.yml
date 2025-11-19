@@ -42,7 +42,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y zip
-          zip -r report.zip cypress/results/mocha  
+          zip -r report_assets.zip cypress/results/mocha/assets
         
       - name: Send test report email
         if: always()
@@ -62,7 +62,8 @@ jobs:
 
           # Path to attachments. Glob works, so you can do e.g. all .html in report folder
           attachments: |
-            report.zip
+            report_assets.zip
+            cypress/results/mocha/*.html
 
           to: "prem.donn@gmail.com"            # recipient(s)
           from: "CI <ci@example.com>"      # sender name and email
