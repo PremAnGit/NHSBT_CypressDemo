@@ -15,8 +15,8 @@
   },
   "scripts": {
     "cypress:run": "npx cypress run",
-    "clean:json": "rimraf-noglob cypress/results/*.json",
-    "merge:reports": "npx mochawesome-merge \"cypress/results/*.json\" > cypress/results/mocha/merged.json",
+    "clean:json": "rimraf cypress/results/*.json",
+    "merge:reports": "npx mochawesome-merge \"cypress/results/*.json\" -o cypress/results/mocha/merged.json",
     "generate:html": "npx marge cypress/results/mocha/merged.json --reportDir cypress/results/mocha --reportFilename 'NHSBT-CypressDemo_ExecutionReport_[datetime]_report'",
     "report:full": "npm-run-all clean:json cypress:run merge:reports generate:html"
   }

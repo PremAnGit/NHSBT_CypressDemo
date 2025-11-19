@@ -6,6 +6,8 @@ module.exports = defineConfig({
     homepageUrl:'https://automationexercise.com/',
     specPattern:'cypress/e2e/**/*.cy.js',
     supportFile: 'cypress/support/e2e.js',
+    screenshotOnRunFailure: true,
+    screenshotsFolder: 'cypress/screenshots',
     reporter:'mochawesome',
     reporterOptions: {
       reportDir: 'cypress/results',
