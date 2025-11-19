@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-11-18T15:13:20.919Z",
-    "end": "2025-11-18T15:13:41.260Z",
-    "duration": 20341,
+    "start": "2025-11-19T16:58:26.329Z",
+    "end": "2025-11-19T16:58:46.222Z",
+    "duration": 19893,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "309cc3c7-448f-4079-bee8-535412570124",
+      "uuid": "42cf1c98-2664-4655-ab31-32857b91c7a3",
       "title": "",
       "fullFile": "cypress/e2e/TC1_RegisterUser&DeleteAccount.cy.js",
       "file": "cypress/e2e/TC1_RegisterUser&DeleteAccount.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "bc40efd8-d1e5-4255-bc51-4e238bd48aef",
+          "uuid": "269ad0a2-af5d-4e25-ba6a-7a1761d27ec1",
           "title": "TC1_Register User & Delete Account Sucessfully",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Navigate to and verify homepage URL, SignIn, LogIn and then delete account",
               "fullTitle": "TC1_Register User & Delete Account Sucessfully Navigate to and verify homepage URL, SignIn, LogIn and then delete account",
               "timedOut": null,
-              "duration": 17675,
+              "duration": 17226,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "//Step 3 : Verify home page has loaded sucesfully\nconst homepage = Cypress.config('homepageUrl');\ncy.url().should('eq', homepage);\ncy.contains('Home').should('exist');\n//Step 4 : Click on 'Signup / login' button\ncy.clickByText(_signupPage.home.signupLoginBtn);\n//Step 5 : Verify 'New User Signup' in visible\ncy.contains(_signupPage.signup.newUserText).should('be.visible');\n//Step 6 : Enter Name and email Address\ncy.fillSignupBasic(username, email);\n//Step 7 : Click Sgin up Button\ncy.clickSignupButton();\n// Step 8: Verify that 'ENTER ACCOUNT INFORMATION' is visible\ncy.verifyEnterAccountInfoHeading(_signupPage.accountInfo.enterAccountInfoText);\n//Step 9: Fill details: Title, Name, Email, Password, Date of birth\ncy.enterSignupDetailsPart1(password, dobDay, dobMonth, dobYear);\n//Step 10 : Select checkbox 'Sign up for our newsletter!'\ncy.checkSignupNewsLetter();\n//Step 11 : Select checkbox 'Receive special offers from our partners!'\ncy.checkSpecialOffers();\n//Step 12 : Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number\ncy.enterSignupDetailsPart2('TestUser', 'timestamp', 'company', 'add 1', 'add 2', 'United States', 'West Yorkshire', 'wakefield', 'wf10 10fw', '8000000009');\n//Step 13 : Click 'Create Account button'\ncy.clickByText('Create Account');\n//Step 14 :  Verify that 'ACCOUNT CREATED!' is visible \ncy.verifyAccountCreationSucess();\n//Step 15 : Click 'Continue' button\ncy.clickByText('Continue');\n//Step 16 : Verify that 'Logged in as username' is visible\ncy.contains((0, _signupPage.loggedInAs)(username)).should('be.visible');\n//Step 17 & 18 : Click 'Delete Account' button\ncy.deleteAccount();",
+              "code": "cy.get('@signupData').then(signupData => {\n  const address = signupData.signupUser.address;\n  cy.log('address is', address);\n  //Step 3 : Verify home page has loaded sucesfully\n  const homepage = Cypress.config('homepageUrl');\n  cy.url().should('eq', homepage);\n  cy.contains('Home').should('exist');\n  //Step 4 : Click on 'Signup / login' button\n  cy.clickByText(_signupPage.home.signupLoginBtn);\n  //Step 5 : Verify 'New User Signup' in visible\n  cy.contains(_signupPage.signup.newUserText).should('be.visible');\n  //Step 6 : Enter Name and email Address\n  cy.fillSignupBasic(username, email);\n  //Step 7 : Click Sgin up Button\n  cy.clickSignupButton();\n  // Step 8: Verify that 'ENTER ACCOUNT INFORMATION' is visible\n  cy.verifyEnterAccountInfoHeading(_signupPage.accountInfo.enterAccountInfoText);\n  //Step 9: Fill details: Title, Name, Email, Password, Date of birth\n  cy.enterSignupDetailsPart1(password, dobDay, dobMonth, dobYear);\n  //Step 10 : Select checkbox 'Sign up for our newsletter!'\n  cy.checkSignupNewsLetter();\n  //Step 11 : Select checkbox 'Receive special offers from our partners!'\n  cy.checkSpecialOffers();\n  //Step 12 : Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number\n  cy.enterSignupDetailsPart2(address);\n  //Step 13 : Click 'Create Account button'\n  cy.clickByText('Create Account');\n  //Step 14 :  Verify that 'ACCOUNT CREATED!' is visible \n  cy.verifyAccountCreationSucess();\n  //Step 15 : Click 'Continue' button\n  cy.clickByText('Continue');\n  //Step 16 : Verify that 'Logged in as username' is visible\n  cy.contains((0, _signupPage.loggedInAs)(username)).should('be.visible');\n  //Step 17 & 18 : Click 'Delete Account' button\n  cy.deleteAccount();\n});",
               "err": {},
-              "uuid": "834afc05-8fe4-48c0-af83-fda69f9baad3",
-              "parentUUID": "bc40efd8-d1e5-4255-bc51-4e238bd48aef",
+              "uuid": "b2437cc5-fbd9-4fa5-a5ff-2d12c12aa200",
+              "parentUUID": "269ad0a2-af5d-4e25-ba6a-7a1761d27ec1",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "834afc05-8fe4-48c0-af83-fda69f9baad3"
+            "b2437cc5-fbd9-4fa5-a5ff-2d12c12aa200"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 17675,
+          "duration": 17226,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

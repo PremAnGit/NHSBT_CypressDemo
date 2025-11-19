@@ -1,0 +1,21 @@
+{
+"signupUser": {
+        "password":"MyStrongPassword!",
+        "dobDay":"3",
+        "dobMonth":"6",
+        "dobYear":"1990",
+        "address": {
+            "firstName": "FirstName",
+            "lastName": "LastName",
+            "company": "company",
+            "address1":"add 1",
+            "address2":"add 2",
+            "country":"United States",
+            "state": "West Yorkshire",
+            "city":"Wakefield",
+            "zipcode": "WF10 10FW",
+            "mobile": "8000000009"
+         }        
+    }
+}
+

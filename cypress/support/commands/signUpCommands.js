@@ -44,9 +44,9 @@ Cypress.Commands.add('verifyEnterAccountInfoHeading', (enterAccountInfoText) => 
 Cypress.Commands.add('enterSignupDetailsPart1', (password, day, month, year) => {
     cy.get(accountInfo.genderSelect).check();
     cy.get(accountInfo.passwordField).type(password);
-    cy.get(accountInfo.daysSelect).select(day);
-    cy.get(accountInfo.monthsSelect).select(month);
-    cy.get(accountInfo.yearsSelect).select(year);
+    cy.get(accountInfo.daysSelect).should('be.visible').select(day, { force: true });
+    cy.get(accountInfo.monthsSelect).should('be.visible').select(month,{force: true});
+    cy.get(accountInfo.yearsSelect).should('be.visible').select(year, { force: true });
   });
 
   // Select the checkbox 'signup for our Newsletter'
@@ -60,17 +60,17 @@ Cypress.Commands.add('checkSignupNewsLetter',() =>{
   });
 
   // Fill account information part2
-Cypress.Commands.add('enterSignupDetailsPart2', (firstName, lastName, company, address1, address2, country, state, city, zipcode, mobile) => {
-    cy.get(addressInfo.firstName).type(firstName);
-    cy.get(addressInfo.lastName).type(lastName);
-    cy.get(addressInfo.company).type(company);
-    cy.get(addressInfo.address1).type(address1);
-    cy.get(addressInfo.address2).type(address2);
-    cy.get(addressInfo.countrySelect).select(country);
-    cy.get(addressInfo.state).type(state);
-    cy.get(addressInfo.city).type(city);
-    cy.get(addressInfo.zipcode).type(zipcode);
-    cy.get(addressInfo.mobile).type(mobile);
+Cypress.Commands.add('enterSignupDetailsPart2', (details) => {  
+    cy.get(addressInfo.firstName).type(details.firstName);
+    cy.get(addressInfo.lastName).type(details.lastName);
+    cy.get(addressInfo.company).type(details.company);
+    cy.get(addressInfo.address1).type(details.address1);
+    cy.get(addressInfo.address2).type(details.address2);
+    cy.get(addressInfo.countrySelect).should('be.visible').select(details.country, {force: true});
+    cy.get(addressInfo.state).type(details.state);
+    cy.get(addressInfo.city).type(details.city);
+    cy.get(addressInfo.zipcode).type(details.zipcode);
+    cy.get(addressInfo.mobile).type(details.mobile);
   });
 
 
