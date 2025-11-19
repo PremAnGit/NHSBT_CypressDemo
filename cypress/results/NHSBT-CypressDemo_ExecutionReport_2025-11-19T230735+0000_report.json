@@ -1,20 +1,20 @@
 {
   "stats": {
-    "suites": 2,
-    "tests": 2,
-    "passes": 2,
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
     "pending": 0,
     "failures": 0,
-    "testsRegistered": 2,
+    "start": "2025-11-19T23:07:15.500Z",
+    "end": "2025-11-19T23:07:35.618Z",
+    "duration": 20118,
+    "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
-    "hasSkipped": false,
-    "start": "2025-11-19T23:07:15.500Z",
-    "end": "2025-11-19T23:07:38.415Z",
-    "duration": 22915
+    "hasSkipped": false
   },
   "results": [
     {
@@ -61,64 +61,6 @@
           "pending": [],
           "skipped": [],
           "duration": 17320,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        }
-      ],
-      "passes": [],
-      "failures": [],
-      "pending": [],
-      "skipped": [],
-      "duration": 0,
-      "root": true,
-      "rootEmpty": true,
-      "_timeout": 2000
-    },
-    {
-      "uuid": "572542fe-0801-49af-a280-3e87948dbb18",
-      "title": "",
-      "fullFile": "cypress/integrationTests/TC1_GET_ProductList.cy.js",
-      "file": "cypress/integrationTests/TC1_GET_ProductList.cy.js",
-      "beforeHooks": [],
-      "afterHooks": [],
-      "tests": [],
-      "suites": [
-        {
-          "uuid": "e2614760-f03d-4daf-bd24-e0c0c387d8db",
-          "title": "API: Products List",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "should GET products list",
-              "fullTitle": "API: Products List should GET products list",
-              "timedOut": null,
-              "duration": 425,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "const api = Cypress.env('apiUrl');\nconst productListPath = Cypress.env('productList');\n// Clean up possible whitespace\nconst base = api.trim().replace(/\\/$/, '');\nconst path = productListPath.trim().replace(/^\\//, '');\nconst fullUrl = `${base}/${path}`;\ncy.request({\n  method: 'GET',\n  url: fullUrl\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // assume response.body is an array\n  expect(response.body).to.have.length.greaterThan(0);\n});",
-              "err": {},
-              "uuid": "c9c03d1d-4c96-48f4-8b62-bcf60e3a4bf8",
-              "parentUUID": "e2614760-f03d-4daf-bd24-e0c0c387d8db",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "c9c03d1d-4c96-48f4-8b62-bcf60e3a4bf8"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 425,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
