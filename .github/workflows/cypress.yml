@@ -40,8 +40,11 @@ jobs:
           browser: chrome
           # Optionally: point to specific specs, if needed
           # spec: cypress/e2e/**/*.*
-
+      - name: List report files
+        run: ls -R cypress/results/mocha
+        
       - name: Send test report email
+        if: always()
         uses: dawidd6/action-send-mail@v6
         with:
         # SMTP server details
