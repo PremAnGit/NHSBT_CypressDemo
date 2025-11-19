@@ -11,6 +11,7 @@ export const signup = {
 
 export const accountInfo = {
     enterAccountInfoText: 'Enter Account Information',
+    enterAccountInfoElement:'h2.title.text-center',
     genderSelect: 'input[id="id_gender1"]',
     passwordField: 'input[id="password"]',
     daysSelect: 'select[id="days"]',

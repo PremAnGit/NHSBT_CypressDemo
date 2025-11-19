@@ -29,13 +29,16 @@ Cypress.Commands.add('clickSignupButton', () => {
 
 // Verify Enter Account Information Visible
 Cypress.Commands.add('verifyEnterAccountInfoHeading', (enterAccountInfoText) => {
-    cy.contains('h2.title.text-center', enterAccountInfoText)
+    cy.contains(accountInfo.enterAccountInfoElement, enterAccountInfoText)
       .should('be.visible')
       .then($el => {
         // ensure only one such element
         expect($el.length).to.eq(1);
         // verify exact text
-        expect($el.text().trim()).to.eq('Enter Account Information');
+        expect($el.text().trim()).to.eq(accountInfo.enterAccountInfoText);
+        // check if the text is in uppercase
+    cy.get('h2')
+      .should ('have.css','text-transform','uppercase');
       });
   });
   

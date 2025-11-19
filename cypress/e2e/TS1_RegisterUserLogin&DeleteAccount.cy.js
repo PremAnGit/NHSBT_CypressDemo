@@ -5,11 +5,6 @@ describe('Test Scenarios to Register User,Login & Delete Account', () => {
   const timestamp = Date.now().toString();
   const username  = `TestUser${timestamp}`;
   const email     = `user${timestamp}@example.com`;
-  const password = 'MyStrongPassword!';
-  const dobDay ='3';
-  const dobMonth = 'June';
-  const dobYear = '1990';
-
 
   beforeEach(function () {
     //Step 1 and 2: browser launch & visit baseUrl 
@@ -21,8 +16,12 @@ describe('Test Scenarios to Register User,Login & Delete Account', () => {
   it('Navigate to and verify homepage URL, SignIn, LogIn and then delete account', () => {    
     
     cy.get('@signupData').then((signupData) => {
-
+    const password = signupData.signupUser.password;
+    const dobDay =signupData.signupUser.dobDay;
+    const dobMonth = signupData.signupUser.dobMonth;
+    const dobYear = signupData.signupUser.dobYear;
     const address = signupData.signupUser.address;
+    
     cy.log('address is', address);
 
     //Step 3 : Verify home page has loaded sucesfully
