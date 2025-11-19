@@ -1,8 +1,7 @@
-import {home,signup,accountInfo,addressInfo,accountCreated, loggedInAs} from '../pages/signupPage';
+import {home,signup,accountInfo,loggedInAs} from '../pages/signupPage';
 
 describe('TC1_Register User & Delete Account Sucessfully', () => {
 
-  //const timestamp = Date.now().toString();
   const timestamp = Date.now().toString();
   const username  = `TestUser${timestamp}`;
   const email     = `user${timestamp}@example.com`;

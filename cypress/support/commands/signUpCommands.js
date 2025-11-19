@@ -1,8 +1,10 @@
 import {
     accountCreated,
+    accountDeleted,
     accountInfo,
+    addressInfo,
     signup
-  } from '../pages/signupPage';
+  } from '../../pages/signupPage';
 
 // Navigate to the base url
 Cypress.Commands.add('baseUrl', () => {
@@ -48,7 +50,7 @@ Cypress.Commands.add('enterSignupDetailsPart1', (password, day, month, year) => 
   });
 
   // Select the checkbox 'signup for our Newsletter'
-  Cypress.Commands.add('checkSignupNewsLetter',() =>{
+Cypress.Commands.add('checkSignupNewsLetter',() =>{
     cy.get(accountInfo.newsletterCheckbox).check();
   });
 
@@ -59,35 +61,44 @@ Cypress.Commands.add('enterSignupDetailsPart1', (password, day, month, year) => 
 
   // Fill account information part2
 Cypress.Commands.add('enterSignupDetailsPart2', (firstName, lastName, company, address1, address2, country, state, city, zipcode, mobile) => {
-    cy.get('input[name="first_name"]').type(firstName);
-    cy.get('input[name="last_name"]').type(lastName);
-    cy.get('input[name="company"]').type(company);
-    cy.get('input[name="address1"]').type(address1);
-    cy.get('input[name="address2"]').type(address2);
-    cy.get('select[name="country"]').select(country);
-    cy.get('input[name="state"]').type(state);
-    cy.get('input[name="city"]').type(city);
-    cy.get('input[name="zipcode"]').type(zipcode);
-    cy.get('input[name="mobile_number"]').type(mobile);
+    cy.get(addressInfo.firstName).type(firstName);
+    cy.get(addressInfo.lastName).type(lastName);
+    cy.get(addressInfo.company).type(company);
+    cy.get(addressInfo.address1).type(address1);
+    cy.get(addressInfo.address2).type(address2);
+    cy.get(addressInfo.countrySelect).select(country);
+    cy.get(addressInfo.state).type(state);
+    cy.get(addressInfo.city).type(city);
+    cy.get(addressInfo.zipcode).type(zipcode);
+    cy.get(addressInfo.mobile).type(mobile);
   });
 
 
   // Verify if the acount is created sucessfully ( note: currently the account created text is in Title case and not all are capitals)
-  Cypress.Commands.add('verifyAccountCreationSucess',()=>{
-    cy.get('h2.title.text-center')
+Cypress.Commands.add('verifyAccountCreationSucess',()=>{
+    cy.get(accountCreated.accElement)
     .should('have.length', 1)
     .should('be.visible')
     .invoke('text')
     .then(text => {
-      expect(text.trim()).to.eq('Account Created!');
+      expect(text.trim()).to.eq(accountCreated.text);
+    
+    // check if the text is in uppercase
+    cy.get('h2')
+    .should ('have.css','text-transform','uppercase');
     });
     });
 
   // Delete account ( note: currently the account deleted text is in Title case and not all are capitals)
 Cypress.Commands.add('deleteAccount', () => {
     cy.clickByText('Delete Account');
-    cy.get('h2[data-qa="account-deleted"]', { timeout: 10000 })
+    cy.get(accountDeleted.accDelElement, { timeout: 10000 })
     .should('be.visible')
-    .and('contain', 'Account Deleted');
+    .and('contain', accountDeleted.text);
+    
+    // check if the text is in uppercase
+    cy.get('h2')
+    .should('have.css', 'text-transform','uppercase')
+
     cy.clickByText('Continue');
   });

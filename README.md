@@ -15,6 +15,7 @@ b. Installation Steps :
  - Navigate to your project root in terminal / command prompt.
  
  - Install Cypress as a dev dependency:
+ 
  npm install --save-dev cypress
 
 c. To verify the installation, run:

@@ -34,7 +34,14 @@ export const accountInfo = {
   };
   
   export const accountCreated = {
-    text: 'ACCOUNT CREATED!'
+    accElement:'h2.title.text-center',
+    text: 'Account Created!'
   };
+
+  export const accountDeleted = {
+    accDelElement: 'h2[data-qa="account-deleted"]', 
+    text: 'Account Deleted'
+  }
+
 
   export const loggedInAs = (username) => `Logged in as ${username}`;
