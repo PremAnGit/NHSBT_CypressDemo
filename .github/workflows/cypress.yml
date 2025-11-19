@@ -36,13 +36,6 @@ jobs:
 
       - name: List report files
         run: ls -R cypress/results/mocha
-
-      # Zip all the report folder 
-      - name: Zip report folder
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y zip
-          zip -r report_assets.zip cypress/results/mocha/assets
         
       - name: Send test report email
         if: always()
@@ -62,7 +55,6 @@ jobs:
 
           # Path to attachments. Glob works, so you can do e.g. all .html in report folder
           attachments: |
-            report_assets.zip
             cypress/results/mocha/*.html
 
           to: "prem.donn@gmail.com"            # recipient(s)
