@@ -1,6 +1,6 @@
 import {home,signup,accountInfo,loggedInAs} from '../pages/signupPage';
 
-describe('TC1_Register User & Delete Account Sucessfully', () => {
+describe('Test Scenarios to Register User,Login & Delete Account', () => {
 
   const timestamp = Date.now().toString();
   const username  = `TestUser${timestamp}`;
