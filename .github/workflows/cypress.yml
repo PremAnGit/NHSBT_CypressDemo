@@ -30,7 +30,7 @@ jobs:
         with:
           path: ~/.cache/Cypress
           key: cypress-binary-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
@@ -40,3 +40,24 @@ jobs:
           browser: chrome
           # Optionally: point to specific specs, if needed
           # spec: cypress/e2e/**/*.*
+
+      - name: Send test report email
+        uses: dawidd6/action-send-mail@v6
+        with:
+        # SMTP server details
+          server_address: smtp.gmail.com  # or your SMTP
+          server_port: 465                 # adjust if your SMTP uses a different port
+          secure: true
+
+        # These should be stored as GitHub Secrets
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+
+          subject: "Cypress Test Report for ${{ github.repository }}"
+          body: "The Cypress tests have completed. The Mochawesome report is attached."
+          
+          # Path to attachments. Glob works, so you can do e.g. all .html in report folder
+          attachments: cypress/results/mocha/*.html
+
+          to: "prem.donn@gmail.com"            # recipient(s)
+          from: "CI <ci@example.com>"      # sender name and email
