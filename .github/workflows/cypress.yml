@@ -32,12 +32,13 @@ jobs:
           key: cypress-binary-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v6
-        with:
+        run: npm run report:full
+        #uses: cypress-io/github-action@v6
+        #with:
           # No build or start needed
-          install: false
-          runTests: true
-          browser: chrome
+          #install: false
+          #runTests: true
+          #browser: chrome
           # Optionally: point to specific specs, if needed
           # spec: cypress/e2e/**/*.*
       - name: List report files
