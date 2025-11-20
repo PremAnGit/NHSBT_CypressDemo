@@ -16,14 +16,8 @@ describe('Test Scenarios to Register User,Login & Delete Account', () => {
   it('Navigate to and verify homepage URL, SignIn, LogIn and then delete account', () => {    
     
     cy.get('@signupData').then((signupData) => {
-    const password = signupData.signupUser.password;
-    const dobDay =signupData.signupUser.dobDay;
-    const dobMonth = signupData.signupUser.dobMonth;
-    const dobYear = signupData.signupUser.dobYear;
-    const address = signupData.signupUser.address;
+    const { password, dobDay, dobMonth, dobYear, address } = signupData.signupUser;
     
-    cy.log('address is', address);
-
     //Step 3 : Verify home page has loaded sucesfully
     const homepage = Cypress.config('homepageUrl');
     cy.url().should('eq', homepage);

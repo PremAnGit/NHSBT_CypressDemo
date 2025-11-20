@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-20T10:47:36.413Z",
+    "end": "2025-11-20T10:47:36.996Z",
+    "duration": 583,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "798ea9d5-5252-4d8f-9e5a-93bb40fd724c",
+      "title": "",
+      "fullFile": "cypress/integrationTests/TC1_GET_ProductList.cy.js",
+      "file": "cypress/integrationTests/TC1_GET_ProductList.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "da836953-f8c4-44bd-9a6a-c6fdd8ad330c",
+          "title": "API: Products List",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should GET products list",
+              "fullTitle": "API: Products List should GET products list",
+              "timedOut": null,
+              "duration": 526,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const api = Cypress.env('apiUrl');\nconst productListPath = Cypress.env('productList');\n// Clean up possible whitespace\nconst base = api.trim().replace(/\\/$/, '');\nconst path = productListPath.trim().replace(/^\\//, '');\nconst fullUrl = `${base}/${path}`;\ncy.request({\n  method: 'GET',\n  url: fullUrl\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // assume response.body is an array\n  expect(response.body).to.have.length.greaterThan(0);\n});",
+              "err": {},
+              "uuid": "e54dfcc4-3ac6-4c7b-bab3-f0408ba5ffe0",
+              "parentUUID": "da836953-f8c4-44bd-9a6a-c6fdd8ad330c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e54dfcc4-3ac6-4c7b-bab3-f0408ba5ffe0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 526,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "NHSBT-CypressDemo_ExecutionReport_[datetime]_report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "reportFilename": "NHSBT-CypressDemo_ExecutionReport_[datetime]_report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
