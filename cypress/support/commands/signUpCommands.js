@@ -88,7 +88,8 @@ Cypress.Commands.add('verifyAccountCreationSucess',()=>{
     
     // check if the text is in uppercase
     cy.get('h2')
-    .should ('have.css','text-transform','uppercase');
+    .should ('have.css','text-transform','uppercase')
+    .and('have.css','color','rgb(0, 128, 0)');
     });
     });
 
@@ -102,6 +103,7 @@ Cypress.Commands.add('deleteAccount', () => {
     // check if the text is in uppercase
     cy.get('h2')
     .should('have.css', 'text-transform','uppercase')
-
+    .and('have.css','color','rgb(0, 128, 0)');
+    
     cy.clickByText('Continue');
   });

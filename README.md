@@ -4,7 +4,11 @@ Automation Testing - Cypress Framework
  
 a. Pre-Requisite Steps:
  - You need Node.js installed (and npm, which comes with Node).
- 
+
+    brew install node  (for MacOS)
+
+    nvm install lts (for powershell)
+
  - You should have a project folder with a package.json (or run npm init to create one).
  
  - Make sure your Node version meets Cypress’s supported versions.
